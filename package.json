@@ -1,0 +1,10 @@
+{
+  "name": "taskflow-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SoftNexis Task 3: Express task API with a connected frontend",
+  "engines": { "node": "24.x" },
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js", "test": "node --test tests.mjs" },
+  "dependencies": { "express": "^5.1.0", "cors": "^2.8.5", "morgan": "^1.10.0", "helmet": "^8.1.0" }
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TaskFlow API — a Node.js and Express task manager with a connected REST API.">
+  <meta name="theme-color" content="#f6f8f7">
+  <title>TaskFlow API | Kaushiki Chatterjee</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="client.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to tasks</a>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="TaskFlow API home"><span class="brand-icon" aria-hidden="true">✓</span><span>TaskFlow <small>API</small></span></a>
+    <button class="theme-button" id="theme-toggle" type="button" aria-pressed="false"><span aria-hidden="true">◐</span> <span id="theme-label">Dark mode</span></button>
+  </header>
+  <main id="main" class="wrap">
+    <section class="intro" aria-labelledby="page-title"><p class="eyebrow">TASK 3 · CONNECTED TO THE SERVER</p><h1 id="page-title">One list. Powered by an API<span>.</span></h1><p>Create, complete, and manage tasks through a real Express backend.</p></section>
+    <div class="workspace">
+      <aside class="overview" aria-labelledby="overview-title"><p class="eyebrow">YOUR OVERVIEW</p><h2 id="overview-title">One step at a time.</h2><div class="stats"><div><strong id="active-count">0</strong><span>Active</span></div><div><strong id="completed-count">0</strong><span>Completed</span></div></div><div class="progress-caption"><span>Completion</span><strong id="progress-text">0%</strong></div><progress id="progress" value="0" max="100" aria-label="Task completion">0%</progress><p class="overview-note">Keep it simple. Write it down.<br>Check it off when you're done.</p><div class="privacy-note"><span aria-hidden="true">◎</span><p>Shared demo list.<br>Resets when the server restarts.</p></div></aside>
+      <section class="task-panel" aria-labelledby="tasks-title">
+        <div class="panel-heading"><h2 id="tasks-title">Shared tasks</h2><span id="total-count" class="total">0 tasks</span></div>
+        <form id="task-form" novalidate><label for="task-input">What would you like to get done?</label><div class="input-row"><input id="task-input" name="task" type="text" maxlength="140" autocomplete="off" placeholder="e.g. Read a chapter" aria-describedby="input-hint input-error"><button class="primary" type="submit"><span aria-hidden="true">+</span> Add task</button></div><div class="input-meta"><span id="input-hint">Keep it short and specific.</span><span id="character-count">0 / 140</span></div><p id="input-error" class="error" role="alert"></p></form>
+        <p class="warning">Public demo: everyone can view and change this list. Use sample tasks only.</p><button type="button" id="refresh">Refresh tasks</button><div class="filters" role="group" aria-label="Filter tasks"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="active" aria-pressed="false">Active</button><button type="button" data-filter="completed" aria-pressed="false">Completed</button></div>
+        <p id="storage-warning" class="warning" role="alert" hidden></p>
+        <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+        <div id="empty-state" class="empty-state"><svg aria-hidden="true" width="84" height="84" viewBox="0 0 84 84" fill="none"><rect x="18" y="13" width="48" height="61" rx="8" fill="currentColor" opacity=".08"/><rect x="16" y="10" width="48" height="61" rx="8" stroke="currentColor" stroke-width="2"/><path d="M29 31l5 5 10-11M29 49h23M29 58h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><h3 id="empty-title">A fresh start.</h3><p id="empty-description">Add your first task above. Small steps count.</p></div>
+        <p class="list-footer" id="list-summary">Your next step starts here.</p>
+      </section>
+    </div>
+    <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+    <noscript><p class="warning">Please enable JavaScript to use the task manager.</p></noscript>
+  </main>
+  <footer class="footer wrap"><span>TaskFlow API · Kaushiki Chatterjee</span><a href="/api/tasks">View API JSON</a><a href="https://github.com/Kaushiki809/taskflow-api">View source on GitHub ↗</a></footer>
+  <dialog id="delete-dialog" aria-labelledby="delete-title" aria-describedby="delete-description"><form method="dialog"><h2 id="delete-title">Delete this task?</h2><p id="delete-description"></p><p class="muted">This removes it from the shared server list and cannot be undone.</p><div class="dialog-actions"><button value="cancel" autofocus>Keep task</button><button value="delete" class="danger">Delete task</button></div></form></dialog>
+</body>
+</html>
